@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All posts</title>
+  </head>
+  <body>
+    <style>
+      .post {
+        border: black solid 3px;
+        width: 150px;
+
+        padding: 10px;
+      }
+      #allposts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 20px;
+      }
+
+      button {
+        width: 150px;
+        height: 130px;
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+      }
+      a {
+        text-decoration: none;
+      }
+      .username {
+        opacity: 0.5;
+      }
+    </style>
+    <a href="post_suggestion.html"><button>WRITE A POST</button></a>
+    <div id="wrapper">
+      <div id="allposts">
+        <template>
+          <div class="post">
+            <h3 class="title"></h3>
+            <p class="username"></p>
+            <p class="content"></p>
+            <a href="a_post.html">Read more</a>
+          </div>
+        </template>
+      </div>
+    </div>
+
+    <script src="all_posts.js"></script>
+  </body>
+</html>
