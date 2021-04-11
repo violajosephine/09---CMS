@@ -8,13 +8,13 @@ const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const payload = {
-    title: form.elements.username.value,
-    username: form.elements.title.value,
+    username: form.elements.username.value,
     content: form.elements.content.value,
+    time: Date.now,
   };
   console.log("no reload");
   console.log(form.elements.username.value);
-  console.log(form.elements.title.value);
+
   console.log(form.elements.content.value);
   document.querySelector("button[type=submit").disabled = true;
 
@@ -35,14 +35,12 @@ form.addEventListener("submit", (e) => {
       console.log(fresh);
       document.querySelector("button[type=submit").disabled = false;
       form.elements.username.value = "";
-      form.elements.title.value = "";
       form.elements.content.value = "";
       //populate comment
       const template = document.querySelector("template").content;
       const copy = template.cloneNode(true);
 
-      copy.querySelector(".comment_title").textContent = fresh.title;
-      copy.querySelector(".comment_user").textContent = fresh.username;
+      copy.querySelector(".comment_user").textContent = "By " + fresh.username;
       copy.querySelector(".comment_content").textContent = fresh.content;
 
       const parent = document.querySelector("#comments");
@@ -75,7 +73,7 @@ function showPost(post) {
   console.log(post);
 
   document.querySelector("#title").textContent = post.title;
-  document.querySelector("#username").textContent = post.username;
+  document.querySelector("#username").textContent = "By " + post.username;
   document.querySelector("#content").textContent = post.content;
 
   post.comments.forEach((comment) => {
@@ -86,8 +84,8 @@ function showPost(post) {
     const copy = template.cloneNode(true);
     //change content
 
-    copy.querySelector(".comment_user").textContent = comment.username;
-    copy.querySelector(".comment_title").textContent = comment.title;
+    copy.querySelector(".comment_user").textContent = "By " + comment.username;
+
     copy.querySelector(".comment_content").textContent = comment.content;
     // //   copy.querySelector(".post_title").textContent = newdata.title;
 
@@ -95,4 +93,15 @@ function showPost(post) {
     const parent = document.querySelector("#comments");
     parent.appendChild(copy);
   });
+
+  if (post.comments.length === 0) {
+    const template = document.querySelector("template").content;
+
+    const copy = template.cloneNode(true);
+    copy.querySelector(".comment_content").textContent =
+      "No comments here yet. Be the first one to share:)";
+
+    const parent = document.querySelector("#comments");
+    parent.appendChild(copy);
+  }
 }

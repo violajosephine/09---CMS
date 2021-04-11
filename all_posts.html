@@ -8,16 +8,28 @@
   </head>
   <body>
     <style>
+      #allposts {
+        margin-top: 30px;
+      }
       .post {
-        border: black solid 3px;
-        width: 150px;
-
+        background-color: white;
+        max-width: 300px;
+        max-height: 400px;
         padding: 10px;
+        box-shadow: 1px 1px 10px 0.01px #123b3d;
+      }
+      .post p {
+        max-width: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 250px;
       }
       #allposts {
         display: flex;
         flex-wrap: wrap;
         gap: 20px 20px;
+        margin-left: 50px;
+        margin-right: 50px;
       }
 
       button {
@@ -33,8 +45,35 @@
       .username {
         opacity: 0.5;
       }
+
+      body {
+        background-color: #1d5e62;
+        color: black;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 10px;
+        width: 200px;
+        margin: auto;
+        border: outset #123b3d 7px;
+        color: white;
+      }
+
+      h1:hover {
+        border: inset #103335 7px;
+        background-color: #123b3d;
+      }
+      img {
+        max-width: 150px;
+        display: block;
+        margin: auto;
+        margin-bottom: 10px;
+      }
     </style>
-    <a href="post_suggestion.html"><button>WRITE A POST</button></a>
+    <a href="all_posts.html"><img src="snake_art.png" /></a>
+    <a href="post_suggestion.html"><h1>WRITE A POST</h1> </a>
     <div id="wrapper">
       <div id="allposts">
         <template>

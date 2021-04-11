@@ -22,19 +22,21 @@ function handlePosts(data) {
 }
 
 function showPosts(post) {
-  console.log(post);
-  //grab template
-  const template = document.querySelector("template").content;
-  //clone it
-  const copy = template.cloneNode(true);
-  //change content
+  if (post.approved == true) {
+    console.log(post);
+    //grab template
+    const template = document.querySelector("template").content;
+    //clone it
+    const copy = template.cloneNode(true);
+    //change content
 
-  copy.querySelector("a").href = "a_post.html?id=" + post._id;
-  copy.querySelector(".title").textContent = post.title;
-  copy.querySelector(".username").textContent = "By " + post.username;
-  copy.querySelector(".content").textContent = post.content;
-  //grab parent
-  const parent = document.querySelector("#allposts");
-  //append child
-  parent.appendChild(copy);
+    copy.querySelector("a").href = "a_post.html?id=" + post._id;
+    copy.querySelector(".title").textContent = post.title;
+    copy.querySelector(".username").textContent = "By " + post.username;
+    copy.querySelector(".content").textContent = post.content;
+    //grab parent
+    const parent = document.querySelector("#allposts");
+    //append child
+    parent.appendChild(copy);
+  }
 }

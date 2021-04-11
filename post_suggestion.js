@@ -9,8 +9,8 @@ form.addEventListener("submit", (e) => {
   document.querySelector("button[type=submit").disabled = true;
 
   const payload = {
-    title: form.elements.username.value,
-    username: form.elements.title.value,
+    title: form.elements.title.value,
+    username: form.elements.username.value,
     content: form.elements.content.value,
   };
 
@@ -29,7 +29,9 @@ form.addEventListener("submit", (e) => {
       form.elements.username.value = "";
       form.elements.title.value = "";
       form.elements.content.value = "";
-      document.querySelector("h1").classList.remove("hidden");
+      document.querySelector("h1").textContent =
+        "Thank you for your contribution!";
+      document.querySelector("#go_back").classList.remove("hidden");
     })
     .catch((err) => {
       console.error(err);

@@ -8,41 +8,88 @@
   </head>
   <body>
       <style> 
-      .comment{border: black solid 1px;
-      max-width: 300px;
-      padding: 10px;
-      }
-      .comment_user {opacity: 0.5;}
-      #comments h3{margin-top: 50px;}
- 
+.comment
+  {border: black solid 1px;
+   max-width: 300px;
+  padding: 10px;}
+
+ .comment_user {opacity: 0.5;}
+
+ #comments h2{margin-top: 50px;
+}
+
+#title { font-size: 3rem;
+ text-align: center;
+ margin: 0;}
+
+ #username {opacity: 0.5;}
+
   form {
     display: flex;
     flex-direction: column;
-    gap: 20px 20px;
-    max-width: 150px;
-    margin-top: 30px;
+    gap: 10px 10px;
+    width: 300px;
+    margin-top: 50px;
   }
+  label{    display: flex;
+    flex-direction: column;
+    gap: 10px 10px;
+    width: 300px;}
+
+  button{width: 100px;
+  margin-top: 20px;}
+
+#wrapper {margin:auto;
+max-width: 700px;
+padding: 50px;
+padding-top: 0;
+}
+
+body {background-color: #1d5e62;
+color: white;}
+
+  .one_comment {background-color: white;
+    box-shadow: 1px 1px 10px 0.01px #123b3d;
+  color: black;
+    padding-left: 20px}
+
+  #comments {display: flex;
+  flex-direction: column;
+  gap: 20px 20px;
+  max-width: 700px;
+  ;}
+
 
   .hidden {
     display: none;}
+
+    img{max-width: 150px;
+    display: block;
+    margin:auto;
+    margin-bottom: 10px;}
+
+    #post {background-color: white;
+    color: black;
+    box-shadow: 1px 1px 10px 0.01px #123b3d;
+    padding: 30px;}
 
       </style>
 
 
 <div id="wrapper">
+  <a href="all_posts.html"><img src="snake_art.png"></a>
     <div id="post">
       <h3 id="title"></h3>
       <p id="username"></p>
       <p id="content"></p>
     </div>
 
-    <div id="comments"><h3> Comments:</h3>
+    <div id="comments"><h2> Comments:</h2>
     </div>
   <template class="comment_template">
         <div class="one_comment">
-          <p class="comment_user">By Viola</p>
-          <h3 class="comment_title"></h3>
-          <p class="comment_content">Ugly</p>
+          <p class="comment_user"></p>
+          <p class="comment_content"></p>
         </div>
       </template>
 
@@ -54,10 +101,7 @@
           >Username:
           <input name="username" type="text" required />
         </label>
-        <label>
-          Title:
-          <input name="title" type="text" required />
-        </label>
+       
         <label>
           Content:
           <textarea name="content" type="text" required></textarea>
