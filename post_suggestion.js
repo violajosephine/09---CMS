@@ -29,8 +29,8 @@ form.addEventListener("submit", (e) => {
       form.elements.username.value = "";
       form.elements.title.value = "";
       form.elements.content.value = "";
-      document.querySelector("h1").textContent =
-        "Thank you for your contribution!";
+      document.querySelector("h1").innerHTML =
+        "Thank you for your contribution! <br>Come back to see it in an hour.";
       document.querySelector("#go_back").classList.remove("hidden");
     })
     .catch((err) => {
